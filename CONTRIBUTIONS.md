@@ -12,9 +12,6 @@ Porfavor en lo posible, usa esta plantilla para el PR.
 ## Descripción:
     Descripción corta
 
-## Peso de la tarea entre:
-    1 a 10
-
 ## GIFs o Screenshots (si es necesario):
 
 ```
@@ -32,9 +29,6 @@ Please use this template for the PR if possible.
 ```
 ## Description:
     Short Description.
-
-## Task weight between:
-    1 a 10
 
 ## GIFs or Screenshots (if needed):
 
