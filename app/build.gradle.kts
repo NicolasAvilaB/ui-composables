@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.items.ui.composables"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.items.ui.composables"
@@ -22,7 +22,7 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"

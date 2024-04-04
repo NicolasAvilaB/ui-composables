@@ -15,4 +15,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "ui-composables"
 include(":app")
- 
+include(":composes")
