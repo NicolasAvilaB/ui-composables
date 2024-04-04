@@ -5,12 +5,12 @@ plugins {
 
 android {
     namespace = "com.items.ui.composables"
-    compileSdk = 34
+    compileSdk = rootProject.extra["compileSdk"] as Int
 
     defaultConfig {
         applicationId = "com.items.ui.composables"
-        minSdk = 29
-        targetSdk = 33
+        minSdk = rootProject.extra["minSdkVersion"] as Int
+        targetSdk = rootProject.extra["targetSdkVersion"] as Int
         versionCode = 1
         versionName = "1.0"
 
@@ -52,14 +52,15 @@ android {
 dependencies {
 
     implementation(project(":composes"))
-    implementation("androidx.core:core-ktx:1.9.0")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
-    implementation("androidx.activity:activity-compose:1.8.2")
-    implementation(platform("androidx.compose:compose-bom:2023.03.00"))
-    implementation("androidx.compose.ui:ui")
-    implementation("androidx.compose.ui:ui-graphics")
-    implementation("androidx.compose.ui:ui-tooling-preview")
-    implementation("androidx.compose.material3:material3")
+
+    implementation(rootProject.extra["activityCompose"] as Any)
+    implementation(rootProject.extra["coreKtx"] as Any)
+    implementation(rootProject.extra["lifecycleRuntimeKtx"] as Any)
+    implementation(platform(rootProject.extra["composeBom"] as Any))
+    implementation(rootProject.extra["composeUi"] as Any)
+    implementation(rootProject.extra["composeUiGraphics"] as Any)
+    implementation(rootProject.extra["toolingPreview"] as Any)
+    implementation(rootProject.extra["composeMaterial3"] as Any)
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
