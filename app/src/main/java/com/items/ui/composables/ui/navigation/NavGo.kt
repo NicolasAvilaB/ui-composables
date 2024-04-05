@@ -6,4 +6,7 @@ class NavGo (navHostController: NavHostController) {
     val loading: () -> Unit = {
         navHostController.navigate(NavRoutes.LoadingScreen.routes)
     }
+    val popBackStack: () -> Unit = {
+        navHostController.popBackStack()
+    }
 }

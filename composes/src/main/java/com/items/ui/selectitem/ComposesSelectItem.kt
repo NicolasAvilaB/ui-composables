@@ -29,7 +29,6 @@ fun ComposesSelectItem(
             fontWeight = FontWeight.W400
         )
     }
-    ComposesHorizontalDivider()
 }
 
 private val paddingRow = 16.dp

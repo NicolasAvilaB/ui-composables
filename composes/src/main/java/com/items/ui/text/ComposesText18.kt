@@ -14,9 +14,9 @@ import androidx.compose.ui.unit.sp
 @Composable
 fun ComposesText18(
     modifier: Modifier = Modifier,
-    color: Color,
+    color: Color = Color.Black,
     fontFamily: FontFamily = FontFamily.Default,
-    fontWeight: FontWeight,
+    fontWeight: FontWeight = FontWeight.Normal,
     letterSpacing: TextUnit = TextUnit.Unspecified,
     lineHeight: TextUnit = TextUnit.Unspecified,
     textAlign: TextAlign? = null,
