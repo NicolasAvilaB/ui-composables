@@ -12,7 +12,7 @@ import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun ComposesText14(
+fun ComposesText20(
     modifier: Modifier = Modifier,
     color: Color,
     fontFamily: FontFamily = FontFamily.Default,
@@ -25,7 +25,7 @@ fun ComposesText14(
 ) {
     Text(
         text = text,
-        fontSize = 14.sp,
+        fontSize = 20.sp,
         textAlign = textAlign,
         fontFamily = fontFamily,
         fontWeight = fontWeight,

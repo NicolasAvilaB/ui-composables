@@ -12,7 +12,7 @@ extra.apply {
     set("appCompat","androidx.appcompat:appcompat:1.6.1")
     set("coilCompose","io.coil-kt:coil-compose:2.1.0")
     set("composeBom","androidx.compose:compose-bom:2023.03.00")
-    set("composeMaterial3","androidx.compose.material3:material3")
+    set("composeMaterial3","androidx.compose.material3:material3:1.2.1")
     set("composeUi","androidx.compose.ui:ui")
     set("composeUiGraphics","androidx.compose.ui:ui-graphics")
     set("coreKtx","androidx.core:core-ktx:${extra["versionCoreKtx"]}")

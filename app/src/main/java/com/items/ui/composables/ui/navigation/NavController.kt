@@ -15,8 +15,8 @@ fun NavController(fragmentActivity: FragmentActivity) {
     NavHost(
         navController = navController,
         startDestination = NavRoutes.MainScreen.routes
-    )
-    {
+    ) {
         mainScreen(navGo = navGo)
+        loadingScreen()
     }
 }

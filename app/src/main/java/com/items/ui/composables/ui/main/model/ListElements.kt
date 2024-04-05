@@ -1,4 +1,4 @@
-package com.items.ui.composables.ui.model
+package com.items.ui.composables.ui.main.model
 
 import android.content.Context
 import com.items.ui.composables.R

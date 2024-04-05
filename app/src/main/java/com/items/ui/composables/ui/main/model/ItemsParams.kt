@@ -1,4 +1,4 @@
-package com.items.ui.composables.ui.model
+package com.items.ui.composables.ui.main.model
 
 data class ItemsParams(
     val label: String,

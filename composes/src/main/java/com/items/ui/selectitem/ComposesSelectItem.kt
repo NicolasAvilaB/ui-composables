@@ -9,7 +9,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import com.items.ui.text.ComposesText14
+import com.items.ui.divider.ComposesHorizontalDivider
+import com.items.ui.text.ComposesText18
 
 @Composable
 fun ComposesSelectItem(
@@ -22,12 +23,13 @@ fun ComposesSelectItem(
             .padding(paddingRow)
             .fillMaxWidth()
     ) {
-        ComposesText14(
+        ComposesText18(
             text = text,
             color = Color.Black,
             fontWeight = FontWeight.W400
         )
     }
+    ComposesHorizontalDivider()
 }
 
 private val paddingRow = 16.dp
