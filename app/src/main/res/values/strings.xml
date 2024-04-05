@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">ui-composables</string>
+    <string name="label_loading_screen">Loading</string>
 </resources>
