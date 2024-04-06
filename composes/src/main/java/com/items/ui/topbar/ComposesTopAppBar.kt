@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarColors
 import androidx.compose.material3.TopAppBarDefaults
@@ -13,6 +14,10 @@ import androidx.compose.material3.TopAppBarScrollBehavior
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.tooling.preview.Preview
+import com.items.ui.composables.ui.theme.UicomposablesTheme
+import com.items.ui.loading.ComposesCentralLoading
+import com.items.ui.text.ComposesText20
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -20,8 +25,8 @@ fun ComposesTopAppBar(
     title: @Composable () -> Unit = {},
     navigationButton: @Composable () -> Unit = {},
     actions: @Composable RowScope.() -> Unit = {},
-    color: Color = Color.Black,
-    titleColor: Color = Color.White,
+    color: Color = MaterialTheme.colorScheme.primary,
+    titleColor: Color = MaterialTheme.colorScheme.onPrimary,
     windowInsets: WindowInsets = TopAppBarDefaults.windowInsets,
     scrollBehavior: TopAppBarScrollBehavior? = null
 ) {
@@ -35,6 +40,44 @@ fun ComposesTopAppBar(
             titleContentColor = titleColor,
         ),
         scrollBehavior = scrollBehavior,
-        modifier = Modifier.statusBarsPadding().navigationBarsPadding()
+        modifier = Modifier
+            .statusBarsPadding()
+            .navigationBarsPadding()
     )
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Preview(showBackground = true)
+@Composable
+fun PreviewComposesTopAppBarLight() {
+    UicomposablesTheme {
+        Surface {
+            ComposesTopAppBar(
+                title = {
+                    ComposesText20(
+                        text = "UI Composables"
+                    )
+                }
+            )
+        }
+    }
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Preview(showBackground = true)
+@Composable
+fun PreviewComposesTopAppBarDark() {
+    UicomposablesTheme(
+        darkTheme = true
+    ) {
+        Surface {
+            ComposesTopAppBar(
+                title = {
+                    ComposesText20(
+                        text = "UI Composables"
+                    )
+                },
+            )
+        }
+    }
 }

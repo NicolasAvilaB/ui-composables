@@ -4,11 +4,14 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.items.ui.composables.ui.theme.UicomposablesTheme
 import com.items.ui.divider.ComposesHorizontalDivider
 import com.items.ui.text.ComposesText18
 
@@ -25,10 +28,35 @@ fun ComposesSelectItem(
     ) {
         ComposesText18(
             text = text,
-            color = Color.Black,
             fontWeight = FontWeight.W400
         )
     }
 }
 
 private val paddingRow = 16.dp
+
+@Preview(showBackground = true)
+@Composable
+fun PreviewSelectItemLight() {
+    UicomposablesTheme {
+        Surface {
+            ComposesSelectItem(
+                text = "Item 1",
+                onClick = { }
+            )
+        }
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun PreviewSelectItemDark() {
+    UicomposablesTheme(darkTheme = true) {
+        Surface {
+            ComposesSelectItem(
+                text = "Item 1",
+                onClick = { }
+            )
+        }
+    }
+}

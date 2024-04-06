@@ -3,6 +3,7 @@ package com.items.ui.composables.ui.loading
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
@@ -27,7 +28,6 @@ internal fun LoadingScreen(navGo: NavGo) {
                         color = Color.White,
                     )
                 },
-                color = MaterialTheme.colorScheme.primary,
                 navigationButton = {
                     ComposesButtonArrowBack(
                         onClick = { navGo.popBackStack.invoke() },
@@ -48,9 +48,11 @@ fun PreviewLoadingScreenLight() {
     val context = LocalContext.current
     val navGo = NavGo(NavHostController(context))
     UicomposablesTheme {
-        LoadingScreen(
-            navGo =navGo
-        )
+        Surface {
+            LoadingScreen(
+                navGo = navGo
+            )
+        }
     }
 }
 
@@ -62,8 +64,10 @@ fun PreviewLoadingScreenDark() {
     UicomposablesTheme(
         darkTheme = true
     ) {
-        LoadingScreen(
-            navGo =navGo
-        )
+        Surface {
+            LoadingScreen(
+                navGo = navGo
+            )
+        }
     }
 }

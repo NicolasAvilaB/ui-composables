@@ -38,11 +38,10 @@ fun ComposesCentralLoading(
 @Preview(showBackground = true)
 @Composable
 fun PreviewComposesCentralLoadingLight() {
-    Surface {
-        ComposesCentralLoading(
-            colorProgress = Color.Red,
-            colorBackground = Color.LightGray,
-        )
+    UicomposablesTheme {
+        Surface {
+            ComposesCentralLoading()
+        }
     }
 }
 
@@ -52,9 +51,8 @@ fun PreviewComposesCentralLoadingDark() {
     UicomposablesTheme(
         darkTheme = true
     ) {
-        ComposesCentralLoading(
-            colorProgress = Color.Red,
-            colorBackground = Color.LightGray,
-        )
+        Surface {
+            ComposesCentralLoading()
+        }
     }
 }

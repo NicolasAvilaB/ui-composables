@@ -6,12 +6,16 @@ import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.constraintlayout.widget.Group
+import androidx.navigation.NavHostController
 import com.items.ui.composables.ui.indexscreen.model.listElements
 import com.items.ui.composables.ui.navigation.NavGo
+import com.items.ui.composables.ui.theme.UicomposablesTheme
 import com.items.ui.divider.ComposesHorizontalDivider
 import com.items.ui.selectitem.ComposesSelectItem
 import com.items.ui.text.ComposesText18
@@ -59,6 +63,34 @@ internal fun MainContent(
                 onClick = element.navGoTo
             )
             ComposesHorizontalDivider()
+        }
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun PreviewIndexMainScreenLight() {
+    val context = LocalContext.current
+    val navGo = NavGo(NavHostController(context))
+    UicomposablesTheme {
+        Surface {
+            IndexMainScreen(
+                navGo = navGo
+            )
+        }
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun PreviewIndexMainScreenDark() {
+    val context = LocalContext.current
+    val navGo = NavGo(NavHostController(context))
+    UicomposablesTheme(darkTheme = true) {
+        Surface {
+            IndexMainScreen(
+                navGo = navGo
+            )
         }
     }
 }
