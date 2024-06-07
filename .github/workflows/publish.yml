@@ -29,4 +29,4 @@ jobs:
         run: chmod +x gradlew
 
       - name: Build and publish
-        run: ./gradlew build publish
+        run: ./gradlew clean build publishToMavenLocal
