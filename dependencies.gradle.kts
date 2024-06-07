@@ -1,4 +1,10 @@
 extra.apply {
+
+    //versionLibrary
+    set("versionMajor", "1")
+    set("versionMinor", "0")
+    set("versionPatch", "0")
+
     set("minSdkVersion", 24)
     set("targetSdkVersion", 34)
 

@@ -1,7 +1,13 @@
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
+    id("maven-publish")
 }
+
+val libraryVersion = "${rootProject.extra["versionMajor"] as Any}.${rootProject.extra["versionMinor"] as Any}.${rootProject.extra["versionPatch"] as Any}"
+val packageName = "com.github.NicolasAvilaB"
+val libraryName = project.name
+val releasePath = "$buildDir/outputs/aar/$libraryName-release.aar"
 
 android {
     namespace = "com.items.ui.composes"
@@ -39,6 +45,26 @@ android {
     packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
+        }
+    }
+}
+
+publishing {
+    publications {
+        create<MavenPublication>("aar") {
+            groupId = packageName
+            artifactId = libraryName
+            version = libraryVersion
+            artifact(releasePath)
+            pom.withXml {
+                val dependencies = asNode().appendNode("dependencies")
+                configurations.getByName("releaseCompileClasspath").getResolvedConfiguration().getFirstLevelModuleDependencies().forEach {
+                    val dependency = dependencies.appendNode("dependency")
+                    dependency.appendNode("groupId", it.moduleGroup)
+                    dependency.appendNode("artifactId", it.moduleName)
+                    dependency.appendNode("version", it.moduleVersion)
+                }
+            }
         }
     }
 }
