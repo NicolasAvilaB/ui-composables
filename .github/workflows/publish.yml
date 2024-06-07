@@ -30,3 +30,46 @@ jobs:
 
       - name: Build and publish
         run: ./gradlew clean build publishToMavenLocal
+
+      - name: Get version from gradle.properties
+        id: get_version
+        run: echo "::set-output name=VERSION::$(grep '^version=' gradle.properties | cut -d'=' -f2)"
+
+      - name: Create GitHub Tag
+        id: create_tag
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const version = '${{ steps.get_version.outputs.VERSION }}';
+            const tagName = `v${version}`;
+            const sha = context.sha;
+            
+            await github.git.createRef({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              ref: `refs/tags/${tagName}`,
+              sha: sha
+            });
+            
+            core.setOutput('tag_name', tagName);
+
+      - name: Create GitHub Release
+        id: create_release
+        uses: actions/create-release@v1
+        with:
+          tag_name: ${{ steps.create_tag.outputs.tag_name }}
+          release_name: Release ${{ steps.create_tag.outputs.tag_name }}
+          draft: false
+          prerelease: false
+          generate_release_notes: true
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload AAR to Release
+        uses: actions/upload-release-asset@v1
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./composes/build/outputs/aar/composes-release.aar
+          asset_name: composable-library-${{ steps.get_version.outputs.VERSION }}.aar
+          asset_content_type: application/zip
+
