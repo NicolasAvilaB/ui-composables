@@ -72,6 +72,13 @@ dependencies {
     implementation(rootProject.extra["retrofit"] as Any)
     implementation(rootProject.extra["textGoogleFonts"] as Any)
     implementation(rootProject.extra["toolingPreview"] as Any)
+    implementation(rootProject.extra["androidCamera2"] as Any)
+    implementation(rootProject.extra["cameraLifecycle"] as Any)
+    implementation(rootProject.extra["cameraView"] as Any)
+    implementation(rootProject.extra["accompanistPermissions"] as Any)
+    implementation(rootProject.extra["mlkitTextRecognition"] as Any)
+    implementation(rootProject.extra["mlkitTextCommon"] as Any)
+    implementation(rootProject.extra["mlkitBarcodeScanning"] as Any)
 
     //test
     testImplementation(rootProject.extra["junit"] as Any)

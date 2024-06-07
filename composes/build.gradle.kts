@@ -8,7 +8,7 @@ android {
     compileSdk = 34
 
     defaultConfig {
-        minSdk = 29
+        minSdk = 24
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
@@ -59,6 +59,13 @@ dependencies {
     implementation(rootProject.extra["navigationCompose"] as Any)
     implementation(rootProject.extra["textGoogleFonts"] as Any)
     implementation(rootProject.extra["toolingPreview"] as Any)
+    implementation(rootProject.extra["androidCamera2"] as Any)
+    implementation(rootProject.extra["cameraLifecycle"] as Any)
+    implementation(rootProject.extra["cameraView"] as Any)
+    implementation(rootProject.extra["accompanistPermissions"] as Any)
+    implementation(rootProject.extra["mlkitTextRecognition"] as Any)
+    implementation(rootProject.extra["mlkitTextCommon"] as Any)
+    implementation(rootProject.extra["mlkitBarcodeScanning"] as Any)
 
     //test
     testImplementation(rootProject.extra["junit"] as Any)

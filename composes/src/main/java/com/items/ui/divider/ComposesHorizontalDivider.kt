@@ -7,13 +7,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.items.ui.button.ComposesButtonArrowBack
 import com.items.ui.composables.ui.theme.UicomposablesTheme
 
 @Composable
-fun ComposesHorizontalDivider(){
+fun ComposesHorizontalDivider(
+    modifier: Modifier = Modifier
+) {
     HorizontalDivider(
-        modifier = Modifier.padding(
+        modifier = modifier.padding(
             start = 16.dp,
             end = 16.dp
         )

@@ -2,10 +2,9 @@ package com.items.ui.button
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.LocalContentColor
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
@@ -15,7 +14,7 @@ import com.items.ui.composables.ui.theme.UicomposablesTheme
 @Composable
 fun ComposesButtonArrowBack(
     onClick: () -> Unit,
-    color: Color = LocalContentColor.current,
+    color: Color = MaterialTheme.colorScheme.onPrimary,
     contentDescription: String? = null,
 ) {
     IconButton(onClick = onClick) {
@@ -29,7 +28,7 @@ fun ComposesButtonArrowBack(
 
 @Preview(showBackground = true)
 @Composable
-fun PreviewButtonArrowBackLight() {
+fun PreviewArrowBackButtonLight() {
     UicomposablesTheme {
         Surface {
             ComposesButtonArrowBack(

@@ -1,11 +1,15 @@
 extra.apply {
-    set("minSdkVersion", 29)
-    set("targetSdkVersion", 33)
+    set("minSdkVersion", 24)
+    set("targetSdkVersion", 34)
 
     //versionsDependencies
     set("versionCoreKtx", "1.9.0")
     set("versionActCompose", "1.8.2")
     set("versionLifecycleRunKtx", "2.7.0")
+    set("versionCameraView", "1.3.3")
+    set("versionGooglePermission", "0.34.0")
+    set("versionMlkit", "19.0.0")
+    set("versionMlkitBarcode", "18.3.0")
 
     //dependencies
     set("activityCompose","androidx.activity:activity-compose:${extra["versionActCompose"]}")
@@ -28,6 +32,15 @@ extra.apply {
     set("retrofitConverterGson","com.squareup.retrofit2:converter-gson:2.9.0")
     set("textGoogleFonts","androidx.compose.ui:ui-text-google-fonts:1.6.1")
     set("toolingPreview","androidx.compose.ui:ui-tooling-preview")
+
+    set("androidCamera2","androidx.camera:camera-camera2:${extra["versionCameraView"]}")
+    set("cameraLifecycle","androidx.camera:camera-lifecycle:${extra["versionCameraView"]}")
+    set("cameraView","androidx.camera:camera-view:${extra["versionCameraView"]}")
+    set("accompanistPermissions","com.google.accompanist:accompanist-permissions:${extra["versionGooglePermission"]}")
+    set("mlkitTextRecognition","com.google.android.gms:play-services-mlkit-text-recognition:${extra["versionMlkit"]}")
+    set("mlkitTextCommon","com.google.android.gms:play-services-mlkit-text-recognition-common:${extra["versionMlkit"]}")
+    set("mlkitBarcodeScanning","com.google.android.gms:play-services-mlkit-barcode-scanning:${extra["versionMlkitBarcode"]}")
+
 
     //testDependencies
     set("junit","junit:junit:4.13.2")

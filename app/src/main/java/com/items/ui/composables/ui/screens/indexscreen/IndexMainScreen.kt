@@ -1,20 +1,22 @@
-package com.items.ui.composables.ui.indexscreen
+package com.items.ui.composables.ui.screens.indexscreen
 
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.constraintlayout.widget.Group
 import androidx.navigation.NavHostController
-import com.items.ui.composables.ui.indexscreen.model.listElements
 import com.items.ui.composables.ui.navigation.NavGo
+import com.items.ui.composables.ui.screens.indexscreen.model.ListElements
 import com.items.ui.composables.ui.theme.UicomposablesTheme
 import com.items.ui.divider.ComposesHorizontalDivider
 import com.items.ui.selectitem.ComposesSelectItem
@@ -30,8 +32,20 @@ internal fun IndexMainScreen(navGo: NavGo) {
                 title = {
                     ComposesText18(
                         text = "UI Composables",
-                        color = Color.White,
                     )
+                },
+                actions = {
+                    IconButton(
+                        onClick = {
+                            navGo.settingScreen.invoke()
+                        }
+                    ) {
+                        Icon(
+                            imageVector = Icons.Filled.Settings,
+                            contentDescription = "",
+                            tint = MaterialTheme.colorScheme.onPrimary
+                        )
+                    }
                 },
                 color = MaterialTheme.colorScheme.primary
             )
@@ -50,7 +64,7 @@ internal fun MainContent(
     navGo: NavGo,
 ) {
     val context = LocalContext.current
-    val elements = listElements(
+    val elements = ListElements(
         context = context,
         navGo = navGo
     )
