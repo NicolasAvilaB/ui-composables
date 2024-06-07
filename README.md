@@ -6,7 +6,7 @@ Ui-Composable es una librería que Android Jetpack Compose, provee components cr
 <br/>
 
 ## Instalación
-En la raíz de tu carpeta ```build.gradle``` en este archivo, agregue el repo de maven + su url.
+En la raíz de tu carpeta ```build.gradle``` o en ```settings.gradle``` en este archivo, agregue el repo de maven + su url.
 ```
 allprojects {
     repositories {
@@ -15,7 +15,7 @@ allprojects {
 }
 ```
 ## Install
-In the  root folder ```build.gradle``` file, add the maven repo with the url.
+In the  root folder ```build.gradle``` or ```settings.gradle``` file, add the maven repo with the url.
 ```
 allprojects {
     repositories {
