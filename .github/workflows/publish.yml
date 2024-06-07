@@ -35,35 +35,32 @@ jobs:
         id: get_version
         run: echo "::set-output name=VERSION::$(grep '^version=' gradle.properties | cut -d'=' -f2)"
 
+      - name: Install GitHub CLI
+        run: sudo apt-get install -y gh
+
+      - name: Authenticate with GitHub CLI
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh auth login --with-token <<< "${{ secrets.GITHUB_TOKEN }}"
+
       - name: Create GitHub Tag
         id: create_tag
-        uses: actions/github-script@v6
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          script: |
-            const version = '${{ steps.get_version.outputs.VERSION }}';
-            const tagName = `v${version}`;
-            const sha = context.sha;
-            
-            await github.git.createRef({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              ref: `refs/tags/${tagName}`,
-              sha: sha
-            });
-            
-            core.setOutput('tag_name', tagName);
+        run: |
+          VERSION=$(echo ${{ steps.get_version.outputs.VERSION }} | tr -d '\n')
+          TAG_NAME="v$VERSION"
+          git tag $TAG_NAME
+          git push origin $TAG_NAME
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Create GitHub Release
         id: create_release
-        uses: actions/create-release@v1
-        with:
-          tag_name: ${{ steps.create_tag.outputs.tag_name }}
-          release_name: Release ${{ steps.create_tag.outputs.tag_name }}
-          draft: false
-          prerelease: false
-          generate_release_notes: true
-          token: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          VERSION=$(echo ${{ steps.get_version.outputs.VERSION }} | tr -d '\n')
+          TAG_NAME="v$VERSION"
+          gh release create $TAG_NAME --generate-notes
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Upload AAR to Release
         uses: actions/upload-release-asset@v1
@@ -72,4 +69,3 @@ jobs:
           asset_path: ./composes/build/outputs/aar/composes-release.aar
           asset_name: composable-library-${{ steps.get_version.outputs.VERSION }}.aar
           asset_content_type: application/zip
-
