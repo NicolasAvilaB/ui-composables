@@ -31,10 +31,22 @@ jobs:
       - name: Build and publish
         run: ./gradlew clean build publishToMavenLocal
 
+      - name: Verify gradle.properties exists
+        run: |
+          if [ ! -f gradle.properties ]; then
+            echo "gradle.properties file not found!"
+            exit 1
+          fi
+          cat gradle.properties
+
       - name: Get version from gradle.properties
         id: get_version
         run: |
           VERSION=$(grep '^version=' gradle.properties | cut -d'=' -f2)
+          if [ -z "$VERSION" ]; then
+            echo "Version not found in gradle.properties!"
+            exit 1
+          fi
           echo "VERSION=$VERSION" >> $GITHUB_ENV
         shell: bash
 
@@ -44,8 +56,7 @@ jobs:
       - name: Authenticate with GitHub CLI
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          echo $GITHUB_TOKEN | gh auth login --with-token
+        run: echo $GITHUB_TOKEN | gh auth login --with-token
 
       - name: Create GitHub Tag
         id: create_tag
