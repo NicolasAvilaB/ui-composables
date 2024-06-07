@@ -1,7 +1,7 @@
 ## Android Ui Composables
 Ui-Composable es una librería que Android Jetpack Compose, provee components creados para uso universal.
 
-# [Material Design 3] methodology components.
+### [Material Design 3] methodology components.
 
 <br/>
 
