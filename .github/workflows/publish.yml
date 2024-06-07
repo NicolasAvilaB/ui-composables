@@ -35,13 +35,10 @@ jobs:
         id: get_version
         run: echo "::set-output name=VERSION::$(grep '^version=' gradle.properties | cut -d'=' -f2)"
 
-      - name: Install GitHub CLI
-        run: sudo apt-get install -y gh
-
-      - name: Authenticate with GitHub CLI
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh auth login --with-token <<< "${{ secrets.GITHUB_TOKEN }}"
+      - name: Set up GitHub CLI
+        uses: actions/setup-gh@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Create GitHub Tag
         id: create_tag
