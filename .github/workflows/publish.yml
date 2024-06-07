@@ -22,7 +22,7 @@ jobs:
       - name: Set up JDK 17
         uses: actions/setup-java@v3
         with:
-          distribution: 'temurin' # Puedes usar 'zulu' o 'adopt' si prefieres otra distribución
+          distribution: 'temurin'
           java-version: '17'
 
       - name: Grant execute permission for gradlew
@@ -33,13 +33,19 @@ jobs:
 
       - name: Get version from gradle.properties
         id: get_version
-        run: echo "VERSION=$(grep '^version=' gradle.properties | cut -d'=' -f2)" >> $GITHUB_ENV
+        run: |
+          VERSION=$(grep '^version=' gradle.properties | cut -d'=' -f2)
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
+        shell: bash
 
       - name: Install GitHub CLI
         run: sudo apt-get install -y gh
 
       - name: Authenticate with GitHub CLI
-        run: gh auth login --with-token <<< "${{ secrets.GITHUB_TOKEN }}"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo $GITHUB_TOKEN | gh auth login --with-token
 
       - name: Create GitHub Tag
         id: create_tag
@@ -47,12 +53,16 @@ jobs:
           TAG_NAME="v${{ env.VERSION }}"
           git tag $TAG_NAME
           git push origin $TAG_NAME
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Create GitHub Release
         id: create_release
         run: |
           TAG_NAME="v${{ env.VERSION }}"
           gh release create $TAG_NAME --generate-notes
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Upload AAR to Release
         uses: actions/upload-release-asset@v1
