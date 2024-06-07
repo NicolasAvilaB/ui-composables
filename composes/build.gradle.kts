@@ -69,6 +69,10 @@ publishing {
     }
 }
 
+tasks.named("publishAarPublicationToMavenLocal").configure {
+    dependsOn(tasks.named("bundleReleaseAar"))
+}
+
 dependencies {
 
     //dependencies

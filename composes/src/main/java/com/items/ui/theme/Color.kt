@@ -13,6 +13,9 @@ val Pink40 = Color(0xFF7D5260)
 val buttonPrimaryColor40Light = Color(0xFF2141A0)
 val buttonPrimaryColor80Dark = Color(0xFF91ABF8)
 
+val buttonPrimaryDisabledColor40Light = Color(0xFF8E9199)
+val buttonPrimaryDisabledColor80Dark = Color(0xFF86888F)
+
 val buttonNavigationColor40Light = Color(0xFF2141A0)
 val buttonNavigationColor80Dark = Color(0xFF91ABF8)
 

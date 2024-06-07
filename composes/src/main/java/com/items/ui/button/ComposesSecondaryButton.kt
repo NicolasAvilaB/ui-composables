@@ -15,6 +15,8 @@ import androidx.compose.ui.unit.dp
 import com.items.ui.composables.ui.theme.UicomposablesTheme
 import com.items.ui.composables.ui.theme.buttonPrimaryColor40Light
 import com.items.ui.composables.ui.theme.buttonPrimaryColor80Dark
+import com.items.ui.composables.ui.theme.buttonPrimaryDisabledColor40Light
+import com.items.ui.composables.ui.theme.buttonPrimaryDisabledColor80Dark
 import com.items.ui.composables.ui.theme.isLight
 import com.items.ui.composes.R
 import com.items.ui.text.ComposesText16
@@ -33,10 +35,17 @@ fun ComposesSecondaryButton(
         enabled = enabled,
         shape = RoundedCornerShape(cornerShapeRadius),
         border = BorderStroke(
-            width = 1.dp, color = if (isLight)
-                buttonPrimaryColor40Light
+            width = 1.dp, color =
+            if (isLight)
+                if (enabled)
+                    buttonPrimaryColor40Light
+                else
+                    buttonPrimaryDisabledColor40Light
             else
-                buttonPrimaryColor80Dark
+                if (enabled)
+                    buttonPrimaryColor80Dark
+                else
+                    buttonPrimaryDisabledColor80Dark
         )
     ) {
         ComposesText16(
