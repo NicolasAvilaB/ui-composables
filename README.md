@@ -22,6 +22,13 @@ allprojects {
 ```
 ## Install
 In the  root folder ```build.gradle``` or ```settings.gradle``` file, add the maven repo with the url.
+
+Kotlin KTS
+url = uri("https://maven.pkg.github.com/NicolasAvilaB/ui-composables")
+
+Grovvy
+url = "https://maven.pkg.github.com/NicolasAvilaB/ui-composables"
+
 ```
 allprojects {
     repositories {
