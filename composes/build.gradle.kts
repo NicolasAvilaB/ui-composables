@@ -56,21 +56,18 @@ publishing {
             artifactId = libraryName
             version = libraryVersion
             artifact(releasePath)
-            pom.withXml {
-                val dependencies = asNode().appendNode("dependencies")
-                configurations.getByName("releaseCompileClasspath").getResolvedConfiguration().getFirstLevelModuleDependencies().forEach {
-                    val dependency = dependencies.appendNode("dependency")
-                    dependency.appendNode("groupId", it.moduleGroup)
-                    dependency.appendNode("artifactId", it.moduleName)
-                    dependency.appendNode("version", it.moduleVersion)
-                }
+        }
+    }
+
+    repositories {
+        maven {
+            url = uri("https://maven.pkg.github.com/NicolasAvilaB/ui-composables")
+            credentials {
+                username = (project.findProperty("gpr.user") ?: System.getenv("GITHUB_USER")).toString()
+                password = (project.findProperty("gpr.token") ?: System.getenv("GITHUB_TOKEN")).toString()
             }
         }
     }
-}
-
-tasks.named("publishAarPublicationToMavenLocal").configure {
-    dependsOn(tasks.named("bundleReleaseAar"))
 }
 
 dependencies {
