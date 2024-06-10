@@ -47,10 +47,10 @@ Agregue la dependencia específica en el modulo del build gradle.
 Then you can add the dependency library specifying the version in the app module ```build.gradle``` file.
 ```
 For Groovy KTS
-- implementation 'com.android.ui.NicolasAvilaB:composes:1.0.0'
+ implementation 'com.android.ui.NicolasAvilaB:composes:1.0.0'
 
 For Kotlin KTS
-- implementation("com.android.ui.NicolasAvilaB:composes:1.0.0")
+ implementation("com.android.ui.NicolasAvilaB:composes:1.0.0")
 
 ```
 
