@@ -14,7 +14,7 @@ allprojects {
             url = uri("https://maven.pkg.github.com/NicolasAvilaB/ui-composables")
             credentials {
                 username = "NicolasAvilaB"
-                password = "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" //pass global de solo lectura
+                password = "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" //pass global de solo lectura
             }
         }
     }
@@ -36,7 +36,7 @@ allprojects {
             url = uri("https://maven.pkg.github.com/NicolasAvilaB/ui-composables")
             credentials {
                 username = "NicolasAvilaB"
-                password = "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" //pass global de solo lectura
+                password = "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" //pass global de solo lectura
             }
         }
     }
