@@ -51,7 +51,8 @@ internal fun ScanQrTextScreen(navGo: NavGo) {
                 onQrResult = { onResult ->
                     result = onResult
                 },
-                analyzerType = AnalyzerType.TEXT
+                analyzerType = AnalyzerType.TEXT,
+                singleScan = false
             )
         }
     }

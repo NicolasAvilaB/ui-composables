@@ -51,7 +51,8 @@ internal fun ScanQrBarcodeScreen(navGo: NavGo) {
                 onQrResult = { onResult ->
                     result = onResult
                 },
-                analyzerType = AnalyzerType.BARCODE
+                analyzerType = AnalyzerType.BARCODE,
+                singleScan = false
             )
         }
     }

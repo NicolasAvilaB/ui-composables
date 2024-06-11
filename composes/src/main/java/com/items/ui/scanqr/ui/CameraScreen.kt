@@ -8,7 +8,10 @@ import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.camera.view.PreviewView
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLifecycleOwner
@@ -19,50 +22,71 @@ import com.items.ui.scanqr.analyzer.TextAnalyzer
 import com.items.ui.scanqr.model.AnalyzerType
 
 @Composable
-fun CameraScreen(analyzerType: AnalyzerType, onQrResult: (String) -> Unit) {
+fun CameraScreen(
+    analyzerType: AnalyzerType,
+    onQrResult: (String) -> Unit,
+    singleScan: Boolean
+) {
     val localContext = LocalContext.current
     val lifecycleOwner = LocalLifecycleOwner.current
     val cameraProviderFuture = remember {
         ProcessCameraProvider.getInstance(localContext)
     }
-    AndroidView(
-        modifier = Modifier.fillMaxSize(),
-        factory = { context ->
-            val previewView = PreviewView(context)
-            val preview = Preview.Builder().build()
-            val selector = CameraSelector.Builder()
-                .requireLensFacing(CameraSelector.LENS_FACING_BACK)
-                .build()
+    var cameraViewVisible by remember { mutableStateOf(true) }
+    if (cameraViewVisible) {
+        AndroidView(
+            modifier = Modifier.fillMaxSize(),
+            factory = { context ->
+                val previewView = PreviewView(context)
+                val preview = Preview.Builder().build()
+                val selector = CameraSelector.Builder()
+                    .requireLensFacing(CameraSelector.LENS_FACING_BACK)
+                    .build()
 
-            preview.setSurfaceProvider(previewView.surfaceProvider)
+                preview.setSurfaceProvider(previewView.surfaceProvider)
 
-            val imageAnalysis = ImageAnalysis.Builder().build()
-            imageAnalysis.setAnalyzer(
-                ContextCompat.getMainExecutor(context),
-                if (analyzerType == AnalyzerType.BARCODE) {
-                    BarcodeAnalyzer(
-                        context = context,
-                        onQrResult = { result -> onQrResult(result) }
-                    )
-                } else {
-                    TextAnalyzer(
-                        context = context,
-                        onQrResult = { result -> onQrResult(result) }
-                    )
-                }
-            )
-
-            runCatching {
-                cameraProviderFuture.get().bindToLifecycle(
-                    lifecycleOwner,
-                    selector,
-                    preview,
-                    imageAnalysis
+                val imageAnalysis = ImageAnalysis.Builder().build()
+                imageAnalysis.setAnalyzer(
+                    ContextCompat.getMainExecutor(context),
+                    if (analyzerType == AnalyzerType.BARCODE) {
+                        BarcodeAnalyzer(
+                            context = context,
+                            onQrResult = { result ->
+                                onQrResult(result)
+                                if (singleScan) {
+                                    cameraProviderFuture.get().unbindAll()
+                                    cameraViewVisible = false
+                                }
+                            },
+                            singleScan = singleScan
+                        )
+                    } else {
+                        TextAnalyzer(
+                            context = context,
+                            onQrResult = { result ->
+                                onQrResult(result)
+                                if (singleScan) {
+                                    cameraProviderFuture.get().unbindAll()
+                                    cameraViewVisible = false
+                                }
+                            },
+                            singleScan = singleScan
+                        )
+                    }
                 )
-            }.onFailure {
-                Log.e("CAMERA", "Camera bind error ${it.localizedMessage}", it)
+
+                runCatching {
+                    cameraProviderFuture.get().bindToLifecycle(
+                        lifecycleOwner,
+                        selector,
+                        preview,
+                        imageAnalysis
+                    )
+                }.onFailure {
+                    Log.e("CAMERA", "Camera bind error ${it.localizedMessage}", it)
+                }
+                previewView
             }
-            previewView
-        }
-    )
+        )
+    }
 }

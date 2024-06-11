@@ -35,9 +35,9 @@ import com.items.ui.scanqr.ui.CameraScreen
 @Composable
 fun ComposesScanQr(
     onQrResult: (String) -> Unit,
-    analyzerType: AnalyzerType
-){
-
+    analyzerType: AnalyzerType,
+    singleScan: Boolean
+) {
     val context = LocalContext.current
     var hasCamPermission by remember {
         mutableStateOf(
@@ -69,7 +69,8 @@ fun ComposesScanQr(
                 analyzerType = analyzerType,
                 onQrResult = { result ->
                     onQrResult(result)
-                }
+                },
+                singleScan = singleScan
             )
         }
 
@@ -102,7 +103,8 @@ fun PreviewScanQrLight() {
         Surface {
             ComposesScanQr(
                 onQrResult = { },
-                analyzerType = AnalyzerType.BARCODE
+                analyzerType = AnalyzerType.BARCODE,
+                singleScan = true
             )
         }
     }
@@ -117,7 +119,8 @@ fun PreviewScanQrDark() {
         Surface {
             ComposesScanQr(
                 onQrResult = { },
-                analyzerType = AnalyzerType.BARCODE
+                analyzerType = AnalyzerType.BARCODE,
+                singleScan = true
             )
         }
     }

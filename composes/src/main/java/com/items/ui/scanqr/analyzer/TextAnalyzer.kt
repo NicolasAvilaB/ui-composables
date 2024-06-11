@@ -11,15 +11,21 @@ import com.google.mlkit.vision.text.latin.TextRecognizerOptions
 
 class TextAnalyzer(
     private val context: Context,
-    private val onQrResult: (String) -> Unit
+    private val onQrResult: (String) -> Unit,
+    private val singleScan: Boolean
 ) : ImageAnalysis.Analyzer {
 
     private val options = TextRecognizerOptions.DEFAULT_OPTIONS
 
     private val scanner = TextRecognition.getClient(options)
+    private var hasScanned = false
 
     @SuppressLint("UnsafeOptInUsageError")
     override fun analyze(imageProxy: ImageProxy) {
+        if (hasScanned && singleScan) {
+            imageProxy.close()
+            return
+        }
         imageProxy.image
             ?.let { image ->
                 scanner.process(
@@ -33,6 +39,9 @@ class TextAnalyzer(
                         ?.let { code ->
                             Toast.makeText(context, "Result: $code", Toast.LENGTH_LONG).show()
                             onQrResult(code)
+                            if (singleScan) {
+                                hasScanned = true
+                            }
                         }
                 }.addOnCompleteListener {
                     imageProxy.close()

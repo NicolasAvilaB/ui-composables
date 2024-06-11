@@ -12,6 +12,11 @@ All changes and releases in the project will be written in detail in this file.
 The format on which it will be based, is on the page (https://keepachangelog.com/en/1.1.0/).
 Use Unreleased for not describe version.
 
+# [1.0.1](https://maven.pkg.github.com/NicolasAvilaB/com.android.ui.NicolasAvilaB:composes:1.0.1) (2024-06-11)
+
+## Fixed
+- fix ComposesScanQR, now allow sincleScan boolean
+
 # [1.0.0](https://maven.pkg.github.com/NicolasAvilaB/com.android.ui.NicolasAvilaB:composes:1.0.0) (2024-06-10)
 
 ## Added Components
