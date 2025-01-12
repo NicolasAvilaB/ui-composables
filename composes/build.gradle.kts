@@ -63,8 +63,8 @@ publishing {
         maven {
             url = uri("https://maven.pkg.github.com/NicolasAvilaB/ui-composables")
             credentials {
-                username = "NicolasAvilaB"
-                password = "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"
+                username = (project.findProperty("gpr.user") ?: System.getenv("GITHUB_USER")).toString()
+                password = (project.findProperty("gpr.token") ?: System.getenv("GITHUB_TOKEN")).toString()
             }
         }
     }
