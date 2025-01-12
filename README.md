@@ -7,6 +7,13 @@ Ui-Composable es una librería que Android Jetpack Compose, provee components cr
 
 ## Instalación
 En la raíz de tu carpeta ```build.gradle``` o en ```settings.gradle``` en este archivo, agregue el repo de maven + su url y credenciales globales.
+
+### Kotlin KTS
+url = uri("https://maven.pkg.github.com/NicolasAvilaB/ui-composables")
+
+### Grovvy
+url = "https://maven.pkg.github.com/NicolasAvilaB/ui-composables"
+
 ```
 allprojects {
     repositories {
