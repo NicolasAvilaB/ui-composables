@@ -64,7 +64,7 @@ publishing {
             url = uri("https://maven.pkg.github.com/NicolasAvilaB/ui-composables")
             credentials {
                 username = "NicolasAvilaB"
-                password = "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"
+                password = "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"
             }
         }
     }
