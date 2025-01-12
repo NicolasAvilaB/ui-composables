@@ -14,7 +14,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
-import com.items.ui.composables.ui.theme.UicomposablesTheme
+import com.items.ui.theme.UicomposablesTheme
 import com.items.ui.text.ComposesText20
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -54,7 +54,7 @@ fun PreviewComposesTopAppBarLight() {
             ComposesTopAppBar(
                 title = {
                     ComposesText20(
-                        text = "UI Composables"
+                        text = "UI Components"
                     )
                 }
             )
@@ -73,7 +73,7 @@ fun PreviewComposesTopAppBarDark() {
             ComposesTopAppBar(
                 title = {
                     ComposesText20(
-                        text = "UI Composables"
+                        text = "UI Components"
                     )
                 },
             )

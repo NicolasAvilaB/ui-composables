@@ -24,15 +24,20 @@ fun NavController(
         buttonScreen(fragmentActivity = fragmentActivity, navGo = navGo)
         buttonSwitch(navGo = navGo)
         drawScreen(navGo = navGo)
+        loginScreen(navGo = navGo)
         failScreen(navGo = navGo)
+        inputScreen(navGo = navGo)
         loadingScreen(navGo = navGo)
         mainScreen(navGo = navGo)
+        modalScreen(navGo = navGo)
         scanQrScreen(navGo = navGo)
         scanQrTextScreen(navGo = navGo)
         settingScreen(
             navGo = navGo,
             viewModel = viewModel
         )
+        successScreen(navGo = navGo)
+        spinnerScreen(navGo = navGo)
         textScreen(navGo = navGo)
         topbarScreen(navGo = navGo)
     }

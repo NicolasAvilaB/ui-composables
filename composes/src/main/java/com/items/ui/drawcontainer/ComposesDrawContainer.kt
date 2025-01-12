@@ -33,12 +33,14 @@ import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.items.ui.button.ComposesPrimaryButton
 import com.items.ui.button.ComposesSecondaryButton
-import com.items.ui.composables.ui.theme.UicomposablesTheme
+import com.items.ui.theme.UicomposablesTheme
 import com.items.ui.composes.R
 import com.items.ui.drawcontainer.model.Line
 
@@ -48,6 +50,7 @@ fun ComposesDrawContainer(
     colorBackground: Color = Color.LightGray,
     strokeWidth: Dp = 4.dp,
     onBitmapResult: (Bitmap) -> Unit,
+    modifier: Modifier = Modifier,
     toastMessage: String
 ) {
     val context = LocalContext.current
@@ -56,11 +59,17 @@ fun ComposesDrawContainer(
     var boxHeight by remember { mutableStateOf(0) }
 
     Column(
+        modifier = modifier,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Box(
             modifier = Modifier
                 .height(350.dp)
+                .semantics {
+                    contentDescription = context.getString(
+                        R.string.draw_container
+                    )
+                }
                 .clip(RoundedCornerShape(16.dp))
                 .background(colorBackground)
                 .onGloballyPositioned { coordinates ->
@@ -85,7 +94,7 @@ fun ComposesDrawContainer(
                         }
                     }
             ) {
-                lines.forEach { line ->
+                for (line in lines) {
                     drawLine(
                         color = line.color,
                         start = line.start,
@@ -147,7 +156,7 @@ internal fun createBitmap(
     val paint = Paint().apply {
         isAntiAlias = true
     }
-    lines.forEach { line ->
+    for (line in lines) {
         paint.color = line.color.toArgb()
         paint.strokeWidth = line.strokeWidth.value + 3
         paint.strokeCap = Paint.Cap.ROUND

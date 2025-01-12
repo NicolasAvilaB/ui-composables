@@ -7,20 +7,33 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.tooling.preview.Preview
-import com.items.ui.composables.ui.theme.UicomposablesTheme
+import com.items.ui.theme.UicomposablesTheme
+import com.items.ui.composes.R
 
 @Composable
 fun ComposesButtonArrowBack(
-    onClick: () -> Unit,
     color: Color = MaterialTheme.colorScheme.onPrimary,
-    contentDescription: String? = null,
+    modifier: Modifier = Modifier,
+    onClick: () -> Unit,
 ) {
-    IconButton(onClick = onClick) {
+    val context = LocalContext.current
+    IconButton(
+        modifier = modifier.semantics {
+            contentDescription = context.getString(
+                R.string.button_of_back
+            )
+        },
+        onClick = onClick
+    ) {
         Icon(
             imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-            contentDescription = contentDescription,
+            contentDescription = "",
             tint = color
         )
     }

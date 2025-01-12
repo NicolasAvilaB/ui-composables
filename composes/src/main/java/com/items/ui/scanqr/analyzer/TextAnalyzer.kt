@@ -12,40 +12,34 @@ import com.google.mlkit.vision.text.latin.TextRecognizerOptions
 class TextAnalyzer(
     private val context: Context,
     private val onQrResult: (String) -> Unit,
-    private val singleScan: Boolean
+    private val singleScan: Boolean,
+    private val enabledResult: Boolean
 ) : ImageAnalysis.Analyzer {
 
     private val options = TextRecognizerOptions.DEFAULT_OPTIONS
 
     private val scanner = TextRecognition.getClient(options)
-    private var hasScanned = false
 
     @SuppressLint("UnsafeOptInUsageError")
     override fun analyze(imageProxy: ImageProxy) {
-        if (hasScanned && singleScan) {
-            imageProxy.close()
-            return
-        }
-        imageProxy.image
-            ?.let { image ->
-                scanner.process(
-                    InputImage.fromMediaImage(
-                        image, imageProxy.imageInfo.rotationDegrees
-                    )
-                ).addOnSuccessListener { results ->
+        imageProxy.image?.let { image ->
+            scanner.process(InputImage.fromMediaImage(image, imageProxy.imageInfo.rotationDegrees))
+                .addOnSuccessListener { results ->
                     results.textBlocks
                         .takeIf { it.isNotEmpty() }
-                        ?.joinToString(",") { it.text }
-                        ?.let { code ->
-                            Toast.makeText(context, "Result: $code", Toast.LENGTH_LONG).show()
+                        ?.joinToString(",") { it.text }?.let { code ->
+                            if (enabledResult) {
+                                Toast.makeText(context, "Result: $code", Toast.LENGTH_SHORT).show()
+                            }
                             onQrResult(code)
                             if (singleScan) {
-                                hasScanned = true
+                                imageProxy.close()
+                                return@addOnSuccessListener
                             }
                         }
                 }.addOnCompleteListener {
                     imageProxy.close()
                 }
-            }
+        }
     }
 }

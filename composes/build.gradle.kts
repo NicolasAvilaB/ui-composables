@@ -77,6 +77,8 @@ dependencies {
     implementation(rootProject.extra["appCompat"] as Any)
     implementation(rootProject.extra["coilCompose"] as Any)
     implementation(platform(rootProject.extra["composeBom"] as Any))
+    implementation(rootProject.extra["composeMaterialIconsExtended"] as Any)
+    implementation(rootProject.extra["composeMaterialIcons"] as Any)
     implementation(rootProject.extra["composeMaterial3"] as Any)
     implementation(rootProject.extra["composeUiGraphics"] as Any)
     implementation(rootProject.extra["composeUi"] as Any)

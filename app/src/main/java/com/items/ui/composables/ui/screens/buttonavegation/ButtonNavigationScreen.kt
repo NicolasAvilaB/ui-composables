@@ -1,4 +1,4 @@
-package com.items.ui.composables.ui.screens.buttonavigationscreen
+package com.items.ui.composables.ui.screens.buttonavegation
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -12,21 +12,21 @@ import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.fragment.app.FragmentActivity
 import androidx.navigation.NavHostController
+import com.items.ui.button.ComposesBackNavigationButton
 import com.items.ui.button.ComposesButtonArrowBack
 import com.items.ui.button.ComposesNavigationButton
 import com.items.ui.composes.R
 import com.items.ui.composables.ui.navigation.NavGo
-import com.items.ui.composables.ui.theme.UicomposablesTheme
-import com.items.ui.composes.R.string.button_navigation
-import com.items.ui.composes.R.string.label_button_navigation_screen
 import com.items.ui.divider.ComposesHorizontalDivider
 import com.items.ui.text.ComposesText14
 import com.items.ui.text.ComposesText18
+import com.items.ui.theme.UicomposablesTheme
 import com.items.ui.topbar.ComposesTopAppBar
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -37,7 +37,7 @@ internal fun ButtonNavigationScreen(navGo: NavGo) {
             ComposesTopAppBar(
                 title = {
                     ComposesText18(
-                        text = stringResource(id = label_button_navigation_screen),
+                        text = stringResource(id = R.string.label_button_navigation_screen),
                     )
                 },
                 navigationButton = {
@@ -56,6 +56,7 @@ internal fun ButtonNavigationScreen(navGo: NavGo) {
 private fun ButtonNavigationContent(
     paddingValues: PaddingValues
 ) {
+    val context = LocalContext.current
     Column(
         modifier = Modifier
             .padding(paddingValues)
@@ -65,17 +66,30 @@ private fun ButtonNavigationContent(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         ComposesNavigationButton(
-            textContent = stringResource(id = button_navigation),
+            textContent = stringResource(id = R.string.button_navigation),
             onClick = { }
         )
         ComposesNavigationButton(
-            textContent = stringResource(id = button_navigation),
+            textContent = stringResource(id = R.string.button_navigation),
             enabled = false,
             onClick = { }
         )
         ComposesText14(
             modifier = Modifier.padding(TextPadding),
             text = stringResource(id = R.string.button_default_navigation)
+        )
+        ComposesHorizontalDivider()
+        ComposesBackNavigationButton(
+            onClick = { }
+        )
+
+        ComposesBackNavigationButton(
+            enabled = false,
+            onClick = { }
+        )
+        ComposesText14(
+            modifier = Modifier.padding(TextPadding),
+            text = stringResource(id = R.string.button_navigation_back)
         )
         ComposesHorizontalDivider()
     }

@@ -9,11 +9,11 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavHostController
 import com.items.ui.button.ComposesButtonArrowBack
-import com.items.ui.composables.ui.navigation.NavGo
-import com.items.ui.composables.ui.theme.UicomposablesTheme
 import com.items.ui.composes.R
+import com.items.ui.composables.ui.navigation.NavGo
 import com.items.ui.loading.ComposesCentralLoading
 import com.items.ui.text.ComposesText18
+import com.items.ui.theme.UicomposablesTheme
 import com.items.ui.topbar.ComposesTopAppBar
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -42,7 +42,7 @@ internal fun LoadingScreen(navGo: NavGo) {
 
 @Preview(showBackground = true)
 @Composable
-fun PreviewLoadingScreenLight() {
+internal fun PreviewLoadingScreenLight() {
     val context = LocalContext.current
     val navGo = NavGo(NavHostController(context))
     UicomposablesTheme {
@@ -56,7 +56,7 @@ fun PreviewLoadingScreenLight() {
 
 @Preview(showBackground = true)
 @Composable
-fun PreviewLoadingScreenDark() {
+internal fun PreviewLoadingScreenDark() {
     val context = LocalContext.current
     val navGo = NavGo(NavHostController(context))
     UicomposablesTheme(

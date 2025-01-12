@@ -14,6 +14,7 @@ class BarcodeAnalyzer(
     private val context: Context,
     private val onQrResult: (String) -> Unit,
     private val singleScan: Boolean,
+    private val enabledResult: Boolean
 ) : ImageAnalysis.Analyzer {
 
     private val options = BarcodeScannerOptions.Builder()
@@ -21,34 +22,26 @@ class BarcodeAnalyzer(
         .build()
 
     private val scanner = BarcodeScanning.getClient(options)
-    private var hasScanned = false
 
     @SuppressLint("UnsafeOptInUsageError")
     override fun analyze(imageProxy: ImageProxy) {
-        if (hasScanned && singleScan) {
-            imageProxy.close()
-            return
-        }
-        imageProxy.image
-            ?.let { image ->
-                scanner.process(
-                    InputImage.fromMediaImage(
-                        image, imageProxy.imageInfo.rotationDegrees
-                    )
-                ).addOnSuccessListener { barcode ->
-                    barcode?.takeIf { it.isNotEmpty() }
-                        ?.mapNotNull { it.rawValue }
-                        ?.joinToString(",")
-                        ?.let { code ->
-                            Toast.makeText(context, "Result: $code", Toast.LENGTH_LONG).show()
-                            onQrResult(code)
-                            if (singleScan) {
-                                hasScanned = true
-                            }
+        imageProxy.image?.let { image ->
+            scanner.process(InputImage.fromMediaImage(image, imageProxy.imageInfo.rotationDegrees))
+                .addOnSuccessListener { barcodes ->
+                    barcodes.firstOrNull()?.rawValue?.let { code ->
+                        if (enabledResult) {
+                            Toast.makeText(context, "Result: $code", Toast.LENGTH_SHORT).show()
                         }
-                }.addOnCompleteListener {
+                        onQrResult(code)
+                        if (singleScan) {
+                            imageProxy.close()
+                            return@addOnSuccessListener
+                        }
+                    }
+                }
+                .addOnCompleteListener {
                     imageProxy.close()
                 }
-            }
+        } ?: imageProxy.close()
     }
 }

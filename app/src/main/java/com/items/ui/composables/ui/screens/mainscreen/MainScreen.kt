@@ -1,4 +1,4 @@
-package com.items.ui.composables.ui.screens.indexscreen
+package com.items.ui.composables.ui.screens.mainscreen
 
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.lazy.LazyColumn
@@ -13,25 +13,27 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavHostController
+import com.drivin.android.ui.screens.mainscreen.model.ListElements
+import com.items.ui.composes.R
 import com.items.ui.composables.ui.navigation.NavGo
-import com.items.ui.composables.ui.screens.indexscreen.model.ListElements
-import com.items.ui.composables.ui.theme.UicomposablesTheme
+import com.items.ui.theme.UicomposablesTheme
 import com.items.ui.divider.ComposesHorizontalDivider
-import com.items.ui.selectitem.ComposesSelectItem
+import com.items.ui.selectitemrow.ComposesMenuItem
 import com.items.ui.text.ComposesText18
 import com.items.ui.topbar.ComposesTopAppBar
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-internal fun IndexMainScreen(navGo: NavGo) {
+internal fun MainScreen(navGo: NavGo) {
     Scaffold(
         topBar = {
             ComposesTopAppBar(
                 title = {
                     ComposesText18(
-                        text = "UI Composables",
+                        text = stringResource(id = R.string.title),
                     )
                 },
                 actions = {
@@ -72,7 +74,7 @@ internal fun MainContent(
         contentPadding = paddingBar
     ) {
         itemsIndexed(elements) { index, element ->
-            ComposesSelectItem(
+            ComposesMenuItem(
                 text = element.label,
                 onClick = element.navGoTo
             )
@@ -83,12 +85,12 @@ internal fun MainContent(
 
 @Preview(showBackground = true)
 @Composable
-fun PreviewIndexMainScreenLight() {
+internal fun PreviewIndexMainScreenLight() {
     val context = LocalContext.current
     val navGo = NavGo(NavHostController(context))
     UicomposablesTheme {
         Surface {
-            IndexMainScreen(
+            MainScreen(
                 navGo = navGo
             )
         }
@@ -97,12 +99,12 @@ fun PreviewIndexMainScreenLight() {
 
 @Preview(showBackground = true)
 @Composable
-fun PreviewIndexMainScreenDark() {
+internal fun PreviewIndexMainScreenDark() {
     val context = LocalContext.current
     val navGo = NavGo(NavHostController(context))
     UicomposablesTheme(darkTheme = true) {
         Surface {
-            IndexMainScreen(
+            MainScreen(
                 navGo = navGo
             )
         }

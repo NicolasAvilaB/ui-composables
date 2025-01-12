@@ -1,4 +1,4 @@
-package com.items.ui.composables.ui.screens.drawcontainerscreen
+package com.items.ui.composables.ui.screens.drawscreen
 
 import android.graphics.Bitmap
 import androidx.compose.foundation.Image
@@ -22,15 +22,15 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.items.ui.composes.R
 import androidx.navigation.NavHostController
 import com.items.ui.button.ComposesButtonArrowBack
-import com.items.ui.composes.R
 import com.items.ui.composables.ui.navigation.NavGo
-import com.items.ui.composables.ui.theme.UicomposablesTheme
 import com.items.ui.divider.ComposesHorizontalDivider
 import com.items.ui.drawcontainer.ComposesDrawContainer
 import com.items.ui.text.ComposesText16
 import com.items.ui.text.ComposesText18
+import com.items.ui.theme.UicomposablesTheme
 import com.items.ui.topbar.ComposesTopAppBar
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -98,7 +98,7 @@ private fun DrawContent(
                 Image(
                     modifier = Modifier.padding(top = 10.dp),
                     bitmap = imageBitMap,
-                    contentDescription = null
+                    contentDescription = stringResource(id = R.string.draw_show)
                 )
             }
         }

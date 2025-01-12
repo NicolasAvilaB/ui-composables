@@ -16,25 +16,27 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.items.ui.composables.ui.theme.UicomposablesTheme
+import com.items.ui.theme.UicomposablesTheme
 import com.items.ui.text.ComposesText18
 
 @Composable
 fun ComposesSwitch(
+    modifier: Modifier = Modifier,
     text: String,
     checked: Boolean,
     enabled: Boolean = true,
     onStateChange: (Boolean) -> Unit,
     thumbContent: (@Composable () -> Unit)? = null,
-){
+) {
     Row(
-        modifier = Modifier
+        modifier = modifier
             .clickable(enabled = enabled, role = Role.Switch,
                 onClick = {
                     onStateChange(!checked)
                 }
             )
-            .padding(PaddingContainerSwitchWithText).fillMaxWidth(),
+            .padding(PaddingContainerSwitchWithText)
+            .fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically
     ) {
         ComposesText18(

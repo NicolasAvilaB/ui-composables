@@ -15,17 +15,18 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.items.ui.button.ComposesPrimaryButton
-import com.items.ui.composables.ui.theme.UicomposablesTheme
+import com.items.ui.theme.UicomposablesTheme
 import com.items.ui.composes.R
 import com.items.ui.text.ComposesText18
 import com.items.ui.text.ComposesText20
 
 @Composable
 fun ComposesErrorTemplate(
+    modifier: Modifier = Modifier,
     onClick: () -> Unit
 ) {
     Box(
-        modifier = Modifier.fillMaxSize(),
+        modifier = modifier.fillMaxSize(),
         contentAlignment = Alignment.Center
     ) {
         Column(
@@ -33,7 +34,7 @@ fun ComposesErrorTemplate(
         ) {
             ComposesText20(
                 text = stringResource(id = R.string.error_happen),
-                fontWeight = FontWeight.Bold,
+                fontWeight =  FontWeight.Bold,
                 textAlign = TextAlign.Center,
                 modifier = Modifier.padding(HeaderTitleTextErrorInTemplate),
             )
@@ -66,9 +67,7 @@ internal fun PreviewDrawScreenLight() {
 @Preview(showBackground = true)
 @Composable
 internal fun PreviewDrawScreenDark() {
-    UicomposablesTheme(
-        darkTheme = true
-    ) {
+    UicomposablesTheme(darkTheme = true) {
         Surface {
             ComposesErrorTemplate(
                 onClick = {}

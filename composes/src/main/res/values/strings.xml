@@ -4,11 +4,37 @@
     <string name="delete">Borrar</string>
     <string name="save">Guardar</string>
     <string name="retry">Reintentar</string>
+    <string name="back">Volver</string>
+    <string name="accept">Aceptar</string>
+    <string name="cancel">Cancelar</string>
+    <string name="search">Buscar</string>
+    <string name="confirm">Confirmar</string>
+    <string name="button_of">Botón de </string>
+    <string name="button_of_back">Botón de volver</string>
     <string name="button_navigation">Botón Navegación</string>
+    <string name="label_email">Email</string>
+    <string name="label_pass">Password</string>
+    <string name="label_modal_screen">Modales</string>
+    <string name="label_weight_input">Peso</string>
+    <string name="label_inputs_screen">Inputs</string>
+    <string name="label_login_screen">Plantilla de Login</string>
+    <string name="label_email_input">Email</string>
+    <string name="label_bottom_sheet_screen">Bottom Sheet</string>
     <string name="label_button_screen">Botones</string>
     <string name="label_setting_screen">Configuraciones</string>
     <string name="label_switch_screen">Botones Switch</string>
     <string name="label_button_navigation_screen">Botones de Navegación</string>
+    <string name="input_email">Email</string>
+    <string name="input_email_screen">Ícono de Email</string>
+    <string name="icon_pass_screen">Icono de Password</string>
+    <string name="icon_number">Icono de Número</string>
+    <string name="text_logo">Logo</string>
+    <string name="enter_action">Ingresar</string>
+    <string name="icon_for_watch_pass_screen">Icono para ver la Password</string>
+    <string name="placeholder_your_must_enter_password">Ingrese su Password...</string>
+    <string name="placeholder_your_must_enter_email">Ingrese su Email...</string>
+    <string name="placeholder_your_must_enter_pass_number">Ingrese Pass Númerica...</string>
+    <string name="placeholder_your_must_enter_number">Ingrese Número...</string>
     <string name="menuitem">MenuItem</string>
     <string name="label_darkmode">Dark Mode</string>
     <string name="button_menuitem">Botón de un Item del Menú</string>
@@ -36,5 +62,51 @@
     <string name="label_draw_screen">Contenedores de Dibujo</string>
     <string name="label_draw_with_event_touch">Dibuja con Evento de Touch</string>
     <string name="label_preview_image_screen">Preview Imagen</string>
+    <string name="draw_container">Contenedor para dibujar</string>
+    <string name="draw_show">Vista Previa del dibujo</string>
+    <string name="select_option">Seleccione una Opción...</string>
+    <string name="search_option_and_select">Busque una Opción...</string>
+    <string name="button_of_select_slot">Botón de selección de slot. Número </string>
     <string name="message_for_save_image_first_draw_some">Para guardar la imagen, necesita dibujar algo</string>
+    <string name="for_scan_qr_must_enabled_the_permissions_to_camera">Para poder escanear, debes de habilitar los permisos de la camara</string>
+    <string name="lorem_ipsum">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    </string>
+
+    <string name="button_navigation_back">Botón de navegación volver</string>
+    <string name="button_slots_enabled">Botones de Slot habilitados</string>
+    <string name="button_slots_some_disabled">Botones de Slot algunos desabilitados</string>
+    <string name="text_subitem1">SubItem 1</string>
+    <string name="text_subitem2">SubItem 2</string>
+    <string name="text_subitem3">SubItem 3</string>
+    <string name="input_default_email">Input de Email por defecto</string>
+    <string name="input_default_pass">Input de Password por defecto</string>
+    <string name="input_default_email_error">Input de Email con estado de error</string>
+    <string name="input_default_pass_error">Input de Password con estado de error</string>
+    <string name="input_default_number">Input de Entrada de Número</string>
+
+    <string name="placeholder_email_input">Ingrese su Email...</string>
+    <string name="input_default_generic">Input Genérico con Keyboard Text y Email</string>
+    <string name="your_must_enter_email">Debe de ingresar su Email</string>
+    <string name="your_must_enter_pass">Debe de ingresar su Password</string>
+
+    <string name="label_button_show_alert_dialog">Mostrar Alert Dialog</string>
+
+    <string name="dialog_default_with_two_vertical_buttons">Alert Dialog con 2 botones verticales</string>
+    <string name="dialog_default_with_two_horizontal_buttons">Alert Dialog con 2 botones horizontales</string>
+    <string name="dialog_default_with_primary_button">Alert Dialog con botón primario</string>
+    <string name="dialog_default_with_secondary_button">Alert Dialog con botón secundario</string>
+    <string name="dialog_default_with_list_search_buttons">Alert Dialog con buscador de lista y bottones</string>
+    <string name="label_title_modal">Lorem Ipsum</string>
+    <string name="label_title_list_modal">¿Que deseas hacer?</string>
+    <string name="write_order">Ingrese Orden</string>
+    <string name="create_new_order">Crear Nueva Orden</string>
+    <string name="label_spinner_screen">DropDowns</string>
+    <string name="spinner_default">DropDown Spinner por defecto</string>
+    <string name="spinner_filter_text">DropDown con filtro de texto en TextField </string>
+
+    <string name="label_success_screen">Plantilla de Éxito</string>
+    <string name="subtitle_operation_completed_successful_screen">La operación se completo éxitosamente</string>
+    <string name="title_good_screen">¡Genial!</string>
+
 </resources>

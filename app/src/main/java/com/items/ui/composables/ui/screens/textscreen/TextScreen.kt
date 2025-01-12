@@ -14,14 +14,14 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.items.ui.button.ComposesButtonArrowBack
-import com.items.ui.composes.R
 import com.items.ui.composables.ui.navigation.NavGo
-import com.items.ui.composables.ui.theme.UicomposablesTheme
+import com.items.ui.composes.R
 import com.items.ui.divider.ComposesHorizontalDivider
 import com.items.ui.text.ComposesText14
 import com.items.ui.text.ComposesText16
 import com.items.ui.text.ComposesText18
 import com.items.ui.text.ComposesText20
+import com.items.ui.theme.UicomposablesTheme
 import com.items.ui.topbar.ComposesTopAppBar
 
 @OptIn(ExperimentalMaterial3Api::class)

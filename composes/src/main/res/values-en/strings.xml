@@ -4,15 +4,41 @@
     <string name="delete">Delete</string>
     <string name="save">Save</string>
     <string name="retry">Retry</string>
+    <string name="back">back</string>
+    <string name="accept">Accept</string>
+    <string name="cancel">Cancel</string>
+    <string name="search">Search</string>
+    <string name="confirm">Confirm</string>
+    <string name="button_of">Button of </string>
+    <string name="button_of_back">Back Button</string>
     <string name="button_navigation">Navigation Button</string>
+    <string name="label_email">Email</string>
+    <string name="label_pass">Password</string>
+    <string name="label_bottom_sheet_screen">Bottom Sheet</string>
     <string name="label_button_screen">Buttons</string>
     <string name="label_setting_screen">Settings</string>
     <string name="label_switch_screen">Switch</string>
+    <string name="label_inputs_screen">Inputs</string>
+    <string name="label_login_screen">Template Login</string>
     <string name="label_button_navigation_screen">Buttons Navegation</string>
     <string name="label_loading_screen">Loading</string>
+    <string name="label_modal_screen">Modales</string>
+    <string name="label_weight_input">Peso</string>
+    <string name="label_email_input">Email</string>
     <string name="label_darkmode">Dark Mode</string>
     <string name="label_fail_screen">Template Error</string>
     <string name="label_scanqr_screen">QR Scan</string>
+    <string name="input_email">Email</string>
+    <string name="input_email_screen">Icon Email</string>
+    <string name="icon_pass_screen">Icon Password</string>
+    <string name="icon_number">Icon Number</string>
+    <string name="text_logo">Logo</string>
+    <string name="enter_action">Log in</string>
+    <string name="icon_for_watch_pass_screen">Icon for see the Password</string>
+    <string name="placeholder_your_must_enter_password">Write your password...</string>
+    <string name="placeholder_your_must_enter_email">Write your Email...</string>
+    <string name="placeholder_your_must_enter_pass_number">Write your Number Pass...</string>
+    <string name="placeholder_your_must_enter_number">Ingrese Número...</string>
     <string name="label_scanqrtext_screen">QR Scan Text</string>
     <string name="permission_cam_denied">Cam Permission Denied</string>
     <string name="message_type_scan">Not defined type Scan</string>
@@ -36,5 +62,50 @@
     <string name="label_draw_screen">Draw</string>
     <string name="label_draw_with_event_touch">Draw with Event Touch</string>
     <string name="label_preview_image_screen">Image Preview</string>
+    <string name="draw_container">Draw container</string>
+    <string name="draw_show">Preview of draw</string>
+    <string name="select_option">Select Option...</string>
+    <string name="search_option_and_select">Search a Option...</string>
+    <string name="button_of_select_slot">Button select slot. Number</string>
     <string name="message_for_save_image_first_draw_some">For save to image, first draw on box something</string>
+    <string name="for_scan_qr_must_enabled_the_permissions_to_camera">For scan qr/text, must enable the permissions to camera</string>
+    <string name="lorem_ipsum">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    </string>
+
+    <string name="button_navigation_back">Back button navigation</string>
+    <string name="button_slots_enabled">Button Slot Enabled</string>
+    <string name="button_slots_some_disabled">Button Slot some disabled</string>
+    <string name="text_subitem1">SubItem 1</string>
+    <string name="text_subitem2">SubItem 2</string>
+    <string name="text_subitem3">SubItem 3</string>
+    <string name="input_default_email">Default Email Input</string>
+    <string name="input_default_pass">Default Password Input</string>
+    <string name="input_default_email_error">Email Input with error state</string>
+    <string name="input_default_pass_error">Password Input with error state</string>
+    <string name="input_default_number">Default Number Input</string>
+    <string name="placeholder_email_input">Write your Email...</string>
+    <string name="input_default_generic">Input Genérico with Keyboard Text and Email</string>
+    <string name="your_must_enter_email">Your must enter Email to input</string>
+    <string name="your_must_enter_pass">Your must enter Password to input</string>
+
+    <string name="label_button_show_alert_dialog">Show Alert Dialog</string>
+
+    <string name="dialog_default_with_two_vertical_buttons">Alert Dialog with two vertical buttons</string>
+    <string name="dialog_default_with_two_horizontal_buttons">Alert Dialog with two horizontal buttons</string>
+    <string name="dialog_default_with_primary_button">Alert Dialog with primary button</string>
+    <string name="dialog_default_with_secondary_button">Alert Dialog with secondary button</string>
+    <string name="dialog_default_with_list_search_buttons">Alert Dialog with list search and button</string>
+    <string name="label_title_modal">Lorem Ipsum</string>
+    <string name="label_title_list_modal">¿What wish you do?</string>
+    <string name="write_order">Write Order</string>
+    <string name="create_new_order">Create New Order</string>
+    <string name="label_spinner_screen">DropDowns</string>
+    <string name="spinner_default">Default DropDown Spinner</string>
+    <string name="spinner_filter_text">DropDown filter text in TextField </string>
+
+    <string name="label_success_screen">Template Success</string>
+    <string name="subtitle_operation_completed_successful_screen">Operation completed successful</string>
+    <string name="title_good_screen">¡Good!</string>
+
 </resources>

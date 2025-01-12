@@ -3,27 +3,24 @@ package com.items.ui.composables.ui.navigation
 import androidx.fragment.app.FragmentActivity
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
-import com.items.ui.composables.ui.screens.buttonavigationscreen.ButtonNavigationScreen
+import com.items.ui.composables.ui.screens.buttonavegation.ButtonNavigationScreen
 import com.items.ui.composables.ui.screens.buttonscreen.ButtonScreen
-import com.items.ui.composables.ui.screens.drawcontainerscreen.DrawScreen
+import com.items.ui.composables.ui.screens.drawscreen.DrawScreen
 import com.items.ui.composables.ui.screens.errortemplatescreen.ErrorTemplateScreen
+import com.items.ui.composables.ui.screens.inputscreen.InputScreen
 import com.items.ui.composables.ui.screens.loadingscreen.LoadingScreen
-import com.items.ui.composables.ui.screens.indexscreen.IndexMainScreen
+import com.items.ui.composables.ui.screens.logintemplatescreen.LoginTemplateScreen
+import com.items.ui.composables.ui.screens.mainscreen.MainScreen
+import com.items.ui.composables.ui.screens.modalscreen.ModalScreen
 import com.items.ui.composables.ui.screens.scanqrscreen.ScanQrBarcodeScreen
 import com.items.ui.composables.ui.screens.scanqrscreen.ScanQrTextScreen
 import com.items.ui.composables.ui.screens.settingscreen.SettingScreen
 import com.items.ui.composables.ui.screens.settingscreen.SettingViewModel
+import com.items.ui.composables.ui.screens.spinnerscreen.SpinnerScreen
+import com.items.ui.composables.ui.screens.successcreen.SuccessTemplateScreen
 import com.items.ui.composables.ui.screens.switchscreen.SwitchScreen
 import com.items.ui.composables.ui.screens.textscreen.TextScreen
 import com.items.ui.composables.ui.screens.topbarscreen.TopBarScreen
-
-internal fun NavGraphBuilder.mainScreen(
-    navGo: NavGo
-) = composable(
-    route = NavRoutes.MainScreen.routes
-) {
-    IndexMainScreen(navGo = navGo)
-}
 
 internal fun NavGraphBuilder.buttonScreen(
     fragmentActivity: FragmentActivity,
@@ -65,6 +62,14 @@ internal fun NavGraphBuilder.drawScreen(
     DrawScreen(navGo = navGo)
 }
 
+internal fun NavGraphBuilder.loginScreen(
+    navGo: NavGo
+) = composable(
+    route = NavRoutes.LoginTemplateScreen.routes
+) {
+    LoginTemplateScreen(navGo = navGo)
+}
+
 internal fun NavGraphBuilder.failScreen(
     navGo: NavGo
 ) = composable(
@@ -73,6 +78,21 @@ internal fun NavGraphBuilder.failScreen(
     ErrorTemplateScreen(navGo = navGo)
 }
 
+internal fun NavGraphBuilder.successScreen(
+    navGo: NavGo
+) = composable(
+    route = NavRoutes.SuccessTemplateScreen.routes
+) {
+    SuccessTemplateScreen(navGo = navGo)
+}
+
+internal fun NavGraphBuilder.inputScreen(
+    navGo: NavGo
+) = composable(
+    route = NavRoutes.InputScreen.routes
+) {
+    InputScreen(navGo = navGo)
+}
 
 internal fun NavGraphBuilder.loadingScreen(
     navGo: NavGo
@@ -80,6 +100,22 @@ internal fun NavGraphBuilder.loadingScreen(
     route = NavRoutes.LoadingScreen.routes
 ) {
     LoadingScreen(navGo = navGo)
+}
+
+internal fun NavGraphBuilder.mainScreen(
+    navGo: NavGo
+) = composable(
+    route = NavRoutes.MainScreen.routes
+) {
+    MainScreen(navGo = navGo)
+}
+
+internal fun NavGraphBuilder.modalScreen(
+    navGo: NavGo
+) = composable(
+    route = NavRoutes.ModalScreen.routes
+) {
+    ModalScreen(navGo = navGo)
 }
 
 internal fun NavGraphBuilder.scanQrScreen(
@@ -108,6 +144,14 @@ internal fun NavGraphBuilder.settingScreen(
         navGo = navGo,
         viewModel = viewModel
     )
+}
+
+internal fun NavGraphBuilder.spinnerScreen(
+    navGo: NavGo
+) = composable(
+    route = NavRoutes.SpinnerScreen.routes
+) {
+    SpinnerScreen(navGo = navGo)
 }
 
 internal fun NavGraphBuilder.textScreen(

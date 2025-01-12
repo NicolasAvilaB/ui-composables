@@ -2,8 +2,8 @@ extra.apply {
 
     //versionLibrary
     set("versionMajor", "1")
-    set("versionMinor", "0")
-    set("versionPatch", "1")
+    set("versionMinor", "1")
+    set("versionPatch", "0")
 
     set("minSdkVersion", 24)
     set("targetSdkVersion", 34)
@@ -16,8 +16,12 @@ extra.apply {
     set("versionGooglePermission", "0.34.0")
     set("versionMlkit", "19.0.0")
     set("versionMlkitBarcode", "18.3.0")
+    set("versionCompose", "1.6.1")
 
     //dependencies
+    set("composeMaterialIconsExtended","androidx.compose.material:material-icons-extended:${extra["versionCompose"]}")
+    set("composeMaterialIcons","androidx.compose.material:material-icons-core:${extra["versionCompose"]}")
+
     set("activityCompose","androidx.activity:activity-compose:${extra["versionActCompose"]}")
     set("appCompat","androidx.appcompat:appcompat:1.6.1")
     set("coilCompose","io.coil-kt:coil-compose:2.1.0")

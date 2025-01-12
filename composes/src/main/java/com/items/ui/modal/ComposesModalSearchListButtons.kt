@@ -1,0 +1,156 @@
+package com.items.ui.modal
+
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.BasicAlertDialog
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.window.DialogProperties
+import com.items.ui.dropdownlist.ComposesFilterDropDownMenu
+import com.items.ui.button.ComposesPrimaryButton
+import com.items.ui.button.ComposesSecondaryButton
+import com.items.ui.theme.UicomposablesTheme
+import com.items.ui.theme.backgroundModalDark
+import com.items.ui.theme.backgroundModalLight
+import com.items.ui.theme.isLight
+import com.items.ui.divider.ComposesHorizontalDivider
+import com.items.ui.text.ComposesText20
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun ComposesModalSearchListButtons(
+    modifier: Modifier = Modifier,
+    showModal: MutableState<Boolean>,
+    title: String,
+    list: MutableList<String>,
+    searchEnabled: Boolean = true,
+    searchTitleText: String,
+    searchInputTextValue: MutableState<String>,
+    searchTextButton: String,
+    showSearchButton: Boolean = true,
+    confirmTextButton: String,
+    onItemSelected: (String) -> Unit,
+    onClickSearch: () -> Unit,
+    onClickConfirm: () -> Unit,
+) {
+    val isLight = MaterialTheme.colorScheme.isLight()
+
+    if (showModal.value) {
+        BasicAlertDialog(
+            onDismissRequest = {
+                showModal.value = false
+            },
+            properties = DialogProperties(
+                dismissOnBackPress = true,
+                dismissOnClickOutside = true
+            )
+        ) {
+            Column(
+                modifier = modifier
+                    .background(
+                        if (isLight)
+                            backgroundModalLight
+                        else
+                            backgroundModalDark,
+                        RoundedCornerShape(ColumnRoundedCornerShape)
+                    )
+                    .fillMaxWidth()
+                    .padding(ColumnPaddingAround),
+                horizontalAlignment = Alignment.Start,
+                verticalArrangement = Arrangement.spacedBy(TitlePaddingTextBottom)
+            ) {
+                ComposesText20(
+                    fontWeight = FontWeight.W600,
+                    text = title
+                )
+                ComposesHorizontalDivider()
+                ComposesFilterDropDownMenu(
+                    title = searchTitleText,
+                    enabled = searchEnabled,
+                    textValue = searchInputTextValue,
+                    list = list,
+                    onItemSelected = onItemSelected
+                )
+                if (showSearchButton) {
+                    ComposesPrimaryButton(
+                        modifier = Modifier.fillMaxWidth(),
+                        textContent = searchTextButton,
+                        onClick = { onClickSearch() }
+                    )
+                }
+                ComposesHorizontalDivider()
+                ComposesSecondaryButton(
+                    modifier = Modifier.fillMaxWidth(),
+                    textContent = confirmTextButton,
+                    onClick = { onClickConfirm() }
+                )
+            }
+        }
+    }
+}
+
+
+@Preview(showBackground = true)
+@Composable
+internal fun PreviewModalSearchListLight() {
+    UicomposablesTheme {
+        Surface {
+            val showModal = remember { mutableStateOf(true) }
+            val inputTextValue = remember { mutableStateOf("") }
+            ComposesModalSearchListButtons(
+                showModal = showModal,
+                title = "¿Que desea hacer?",
+                list = mutableListOf(),
+                searchTitleText = "Buscador Orden",
+                searchInputTextValue = inputTextValue,
+                searchTextButton = "Buscar",
+                confirmTextButton = "Registrar Nuevo",
+                onClickSearch = { },
+                onClickConfirm = { },
+                onItemSelected = { }
+            )
+        }
+    }
+}
+
+
+@Preview(showBackground = true)
+@Composable
+internal fun PreviewModalSearchListDark() {
+    UicomposablesTheme(darkTheme = true) {
+        Surface {
+            val showModal = remember { mutableStateOf(true) }
+            val inputTextValue = remember { mutableStateOf("") }
+            ComposesModalSearchListButtons(
+                showModal = showModal,
+                title = "¿Que desea hacer?",
+                searchTitleText = "Buscador Orden",
+                list = mutableListOf(),
+                searchInputTextValue = inputTextValue,
+                searchTextButton = "Buscar",
+                confirmTextButton = "Registrar Nuevo",
+                onClickSearch = { },
+                onClickConfirm = { },
+                onItemSelected = { }
+            )
+        }
+    }
+}
+
+private val TitlePaddingTextBottom = 20.dp
+private val ColumnRoundedCornerShape = 16.dp
+private val ColumnPaddingAround = 26.dp

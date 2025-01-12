@@ -3,23 +3,23 @@ package com.items.ui.composables.ui.screens.settingscreen
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavHostController
 import com.items.ui.button.ComposesButtonArrowBack
-import com.items.ui.composes.R
 import com.items.ui.composables.ui.navigation.NavGo
-import com.items.ui.composables.ui.theme.UicomposablesTheme
+import com.items.ui.composes.R
 import com.items.ui.switc.ComposesSwitch
 import com.items.ui.text.ComposesText18
+import com.items.ui.theme.UicomposablesTheme
 import com.items.ui.topbar.ComposesTopAppBar
-import androidx.compose.runtime.remember
-import androidx.compose.material3.Scaffold
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -66,7 +66,7 @@ internal fun PreviewSettingScreenLight() {
     val context = LocalContext.current
     val viewModel = SettingViewModel()
     val navGo = NavGo(NavHostController(context))
-    UicomposablesTheme(darkTheme = false) {
+    UicomposablesTheme {
         Surface {
             SettingScreen(
                 navGo = navGo,

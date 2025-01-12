@@ -1,4 +1,4 @@
-package com.items.ui.composables.ui.theme
+package com.items.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
@@ -22,4 +22,13 @@ val buttonNavigationColor80Dark = Color(0xFF91ABF8)
 val buttonNavigationDisabled40Light = Color(0xFFD4D7E0)
 val buttonNavigationDisabled80Dark = Color(0xFF484A4E)
 
+val backgroundModalLight = Color(0xFFFFFFFF)
+val backgroundModalDark = Color(0xFF484A4E)
+
+val colorDividerLight = Color(0xFFECD9D9)
+val colorDividerDark = Color(0xFF8A8D92)
+
 val onPrimaryColorDark = Color(0xFF052688)
+
+val buttonSelectedColor40Light = Color(0xFF2EB629)
+val buttonSelectedColor80Dark = Color(0xFFB6FA98)

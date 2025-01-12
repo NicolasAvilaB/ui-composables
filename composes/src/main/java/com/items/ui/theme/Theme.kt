@@ -1,4 +1,4 @@
-package com.items.ui.composables.ui.theme
+package com.items.ui.theme
 
 import android.app.Activity
 import android.os.Build
@@ -19,18 +19,15 @@ import androidx.core.view.WindowCompat
 
 private val DarkColorScheme = darkColorScheme(
     primary = Purple80,
-    secondary = PurpleGrey80,
     onPrimary = onPrimaryColorDark,
-    tertiary = Pink80,
-    inverseSurface = Purple80,
+    secondary = PurpleGrey80,
+    tertiary = Pink80
 )
 
 private val LightColorScheme = lightColorScheme(
     primary = Purple40,
     secondary = PurpleGrey40,
-    tertiary = Pink40,
-    inverseSurface = Purple40,
-
+    tertiary = Pink40
 
     /* Other default colors to override
     background = Color(0xFFFFFBFE),
@@ -59,7 +56,6 @@ fun UicomposablesTheme(
         darkTheme -> DarkColorScheme
         else -> LightColorScheme
     }
-
     val view = LocalView.current
     if (!view.isInEditMode) {
         SideEffect {

@@ -15,11 +15,23 @@ class NavGo (navHostController: NavHostController) {
     val drawScreen: () -> Unit = {
         navHostController.navigate(NavRoutes.DrawScreen.routes)
     }
+    val loginTemplateScreen: () -> Unit = {
+        navHostController.navigate(NavRoutes.LoginTemplateScreen.routes)
+    }
     val errorTemplateScreen: () -> Unit = {
         navHostController.navigate(NavRoutes.ErrorTemplateScreen.routes)
     }
+    val sucessTemplateScreen: () -> Unit = {
+        navHostController.navigate(NavRoutes.SuccessTemplateScreen.routes)
+    }
+    val inputScreen: () -> Unit = {
+        navHostController.navigate(NavRoutes.InputScreen.routes)
+    }
     val loadingScreen: () -> Unit = {
         navHostController.navigate(NavRoutes.LoadingScreen.routes)
+    }
+    val modalScreen: () -> Unit = {
+        navHostController.navigate(NavRoutes.ModalScreen.routes)
     }
     val scanQrScreen: () -> Unit = {
         navHostController.navigate(NavRoutes.ScanQrScreen.routes)
@@ -29,6 +41,9 @@ class NavGo (navHostController: NavHostController) {
     }
     val settingScreen: () -> Unit = {
         navHostController.navigate(NavRoutes.SettingScreen.routes)
+    }
+    val spinnerScreen: () -> Unit = {
+        navHostController.navigate(NavRoutes.SpinnerScreen.routes)
     }
     val textScreen: () -> Unit = {
         navHostController.navigate(NavRoutes.TextScreen.routes)

@@ -8,9 +8,9 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
-import com.items.ui.composables.ui.navigation.NavController
 import com.items.ui.composables.ui.screens.settingscreen.SettingViewModel
-import com.items.ui.composables.ui.theme.UicomposablesTheme
+import com.items.ui.composables.ui.navigation.NavController
+import com.items.ui.theme.UicomposablesTheme
 
 class MainActivity : AppCompatActivity() {
 

@@ -11,17 +11,19 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavHostController
-import com.items.ui.button.ComposesButtonArrowBack
 import com.items.ui.composes.R
+import com.items.ui.button.ComposesButtonArrowBack
 import com.items.ui.composables.ui.navigation.NavGo
-import com.items.ui.composables.ui.theme.UicomposablesTheme
 import com.items.ui.errortemplate.ComposesErrorTemplate
 import com.items.ui.text.ComposesText18
+import com.items.ui.theme.UicomposablesTheme
 import com.items.ui.topbar.ComposesTopAppBar
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-internal fun ErrorTemplateScreen(navGo: NavGo) {
+internal fun ErrorTemplateScreen(
+    navGo: NavGo
+) {
     Scaffold(
         topBar = {
             ComposesTopAppBar(
